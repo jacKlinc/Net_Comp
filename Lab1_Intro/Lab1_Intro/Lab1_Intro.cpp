@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "person2.h"
 #include "person1.h"
+#include "student.h"
 
 int main(cli::array<System::String ^> ^args) // added cli:: before array to fix
 {
@@ -33,5 +34,19 @@ int main(cli::array<System::String ^> ^args) // added cli:: before array to fix
 	*/
 
 	// Managed Class (CLI)
+	person1 p1;
+	p1.display();
+	String^ someString;
+	String^ otherString;
+	someString = gcnew String(L"Ray");
+	otherString = gcnew String(L"Lynch");
+	p1.setData(someString, otherString);
+	p1.display();
 
+	// CLR Arrays & Inheritance
+	student s1;
+	s1.display();
+	s1.setData(someString, otherString);
+	s1.setList();
+	s1.display();
 }
