@@ -7,7 +7,7 @@ person2::person2(){
 }
 
 void person2::display() {
-	cout << name << "\n" << address << "\n";
+	cout << name << "\n" << address << "\n"; // cout for std (unmanaged class)
 }
 
 void person2::setData(string n, string a) {

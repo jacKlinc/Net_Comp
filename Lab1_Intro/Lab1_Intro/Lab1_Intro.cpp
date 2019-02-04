@@ -13,11 +13,10 @@ int main(cli::array<System::String ^> ^args) // added cli:: before array to fix
 	// Unmanaged Class
 	person2 p2;
 	p2.display();
-	p2.setData("wagwan", "hello");
+	p2.setData("jack", "dublin");	// name = wagwan, address = hello
 	p2.display();
 
-	// Tracking Handles
-	/*
+	/* Tracking Handles:
 	> Similar to C++ pointer but does not store addr
 	> Addr arithmetic and casting a tracking handle is not permitted
 	> All objects that are reference class types are stored in the heap; therefore, the variables
@@ -35,18 +34,16 @@ int main(cli::array<System::String ^> ^args) // added cli:: before array to fix
 
 	// Managed Class (CLI)
 	person1 p1;
-	p1.display();
-	String^ someString;
-	String^ otherString;
-	someString = gcnew String(L"Ray");
-	otherString = gcnew String(L"Lynch");
-	p1.setData(someString, otherString);
+	p1.display();							
+	String^ someString = gcnew String(L"Ray");	// tracking handle to string
+	String^ otherString = gcnew String(L"DIT");
+	p1.setData(someString, otherString);		// changes name = Ray, address = DIT
 	p1.display();
 
 	// CLR Arrays & Inheritance
 	student s1;
 	s1.display();
 	s1.setData(someString, otherString);
-	s1.setList();
-	s1.display();
+	s1.setList();								// called function for user input for subjects
+	s1.display();								// prints all
 }
