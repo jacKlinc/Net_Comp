@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab3_CSharpCalc", "Lab2_CSharpCalc\Lab3_CSharpCalc.csproj", "{9F6BCA5A-6A54-4247-BD66-73C96A73B04D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathFuncDLL", "MathFuncDLL\MathFuncDLL.csproj", "{8A0B2AD5-CB2A-4AFC-A3F9-A56654A2B40D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{3257FB43-4CCC-47FE-8078-A0BABAB17227}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab3_CSharpCalc", "..\Lab2_CSharpCalc\Lab2_CSharpCalc\Lab3_CSharpCalc.csproj", "{9F6BCA5A-6A54-4247-BD66-73C96A73B04D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A0B2AD5-CB2A-4AFC-A3F9-A56654A2B40D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A0B2AD5-CB2A-4AFC-A3F9-A56654A2B40D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A0B2AD5-CB2A-4AFC-A3F9-A56654A2B40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A0B2AD5-CB2A-4AFC-A3F9-A56654A2B40D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9F6BCA5A-6A54-4247-BD66-73C96A73B04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9F6BCA5A-6A54-4247-BD66-73C96A73B04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F6BCA5A-6A54-4247-BD66-73C96A73B04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F6BCA5A-6A54-4247-BD66-73C96A73B04D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3257FB43-4CCC-47FE-8078-A0BABAB17227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3257FB43-4CCC-47FE-8078-A0BABAB17227}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3257FB43-4CCC-47FE-8078-A0BABAB17227}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3257FB43-4CCC-47FE-8078-A0BABAB17227}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3A16F7BA-8946-4140-862B-DAB2C81FA1F3}
+		SolutionGuid = {ACCA6A2D-C1CB-41EC-8B81-F3015F9E6066}
 	EndGlobalSection
 EndGlobal

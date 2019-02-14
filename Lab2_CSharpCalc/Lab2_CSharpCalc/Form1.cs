@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DLLMathFunc;
 
 namespace Lab2_CSharpCalc
 {
     public partial class Form1 : Form
     {
+        Class1 c1;
         bool firstFlag;
-        String prevOp;
-		String curOp;
-		float runningTotal;
-        float currentVal;
+        String prevOp, curOp;
+		float runningTotal, currentVal, powNumber;
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace Lab2_CSharpCalc
             prevOp = "+";
             runningTotal = 0;
             currentVal = 0;
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) { }
@@ -207,6 +208,33 @@ namespace Lab2_CSharpCalc
             }
             textBox1.Text = Convert.ToString(runningTotal);
             prevOp = "+";
+            firstFlag = true;
+        }
+        
+        private void button17_Click(object sender, EventArgs e) { // sqrt
+            currentVal = Convert.ToSingle(textBox1.Text);
+            c1.sqrtFunction(currentVal);
+            textBox1.Text = currentVal;
+            prevOp = "+";
+            runningTotal = 0;
+            firstFlag = true;
+        }
+
+        private void button18_Click(object sender, EventArgs e) { //pow
+            currentVal = Convert.ToSingle(textBox1.Text);
+            c1.powFunction(currentVal, powNumber);
+            textBox1.Text = currentVal;
+            prevOp = "+";
+            runningTotal = 0;
+            firstFlag = true;
+        }
+
+        private void button19_Click(object sender, EventArgs e) { // sqaured
+            currentVal = Convert.ToSingle(textBox1.Text);
+            c1.squaredFunction(currentVal);
+            textBox1.Text = currentVal;
+            prevOp = "+";
+            runningTotal = 0;
             firstFlag = true;
         }
     }
