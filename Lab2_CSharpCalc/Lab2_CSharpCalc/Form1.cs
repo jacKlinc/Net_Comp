@@ -13,10 +13,11 @@ namespace Lab2_CSharpCalc
 {
     public partial class Form1 : Form
     {
-        Class1 c1;
         bool firstFlag;
-        String prevOp, curOp;
-		float runningTotal, currentVal, powNumber;
+        String prevOp;
+		String curOp;
+		float runningTotal;
+        float currentVal;
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +25,6 @@ namespace Lab2_CSharpCalc
             prevOp = "+";
             runningTotal = 0;
             currentVal = 0;
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) { }
@@ -210,32 +210,20 @@ namespace Lab2_CSharpCalc
             prevOp = "+";
             firstFlag = true;
         }
-        
-        private void button17_Click(object sender, EventArgs e) { // sqrt
-            currentVal = Convert.ToSingle(textBox1.Text);
-            c1.sqrtFunction(currentVal);
-            textBox1.Text = currentVal;
+
+        private void button17_Click(object sender, EventArgs e) {
+            sqrtFunc(runningTotal);
             prevOp = "+";
-            runningTotal = 0;
-            firstFlag = true;
         }
 
-        private void button18_Click(object sender, EventArgs e) { //pow
-            currentVal = Convert.ToSingle(textBox1.Text);
-            c1.powFunction(currentVal, powNumber);
-            textBox1.Text = currentVal;
+        private void button18_Click(object sender, EventArgs e) {
+            percentFunc(runningTotal);
             prevOp = "+";
-            runningTotal = 0;
-            firstFlag = true;
         }
 
-        private void button19_Click(object sender, EventArgs e) { // sqaured
-            currentVal = Convert.ToSingle(textBox1.Text);
-            c1.squaredFunction(currentVal);
-            textBox1.Text = currentVal;
+        private void button19_Click(object sender, EventArgs e) {
+            squaredFunc(runningTotal);
             prevOp = "+";
-            runningTotal = 0;
-            firstFlag = true;
         }
     }
 }
