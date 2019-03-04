@@ -33,8 +33,8 @@
 #include <string.h>
 #include "Example1_h.h"
 
-#define TYPE_FORMAT_STRING_SIZE   7                                 
-#define PROC_FORMAT_STRING_SIZE   31                                
+#define TYPE_FORMAT_STRING_SIZE   11                                
+#define PROC_FORMAT_STRING_SIZE   43                                
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   0            
@@ -112,11 +112,11 @@ static const Example1_MIDL_PROC_FORMAT_STRING Example1__MIDL_ProcFormatString =
 			0x48,		/* Old Flags:  */
 /*  2 */	NdrFcLong( 0x0 ),	/* 0 */
 /*  6 */	NdrFcShort( 0x0 ),	/* 0 */
-/*  8 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 10 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 12 */	NdrFcShort( 0x0 ),	/* 0 */
+/*  8 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
+/* 10 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 12 */	NdrFcShort( 0x1c ),	/* 28 */
 /* 14 */	0x42,		/* Oi2 Flags:  clt must size, has ext, */
-			0x1,		/* 1 */
+			0x3,		/* 3 */
 /* 16 */	0x8,		/* 8 */
 			0x1,		/* Ext Flags:  new corr desc, */
 /* 18 */	NdrFcShort( 0x0 ),	/* 0 */
@@ -128,6 +128,20 @@ static const Example1_MIDL_PROC_FORMAT_STRING Example1__MIDL_ProcFormatString =
 /* 24 */	NdrFcShort( 0x10b ),	/* Flags:  must size, must free, in, simple ref, */
 /* 26 */	NdrFcShort( 0x0 ),	/* x86 Stack size/offset = 0 */
 /* 28 */	NdrFcShort( 0x4 ),	/* Type Offset=4 */
+
+	/* Parameter receivedValues */
+
+/* 30 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
+/* 32 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
+/* 34 */	0xa,		/* FC_FLOAT */
+			0x0,		/* 0 */
+
+	/* Parameter returnptr */
+
+/* 36 */	NdrFcShort( 0x2150 ),	/* Flags:  out, base type, simple ref, srv alloc size=8 */
+/* 38 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
+/* 40 */	0xa,		/* FC_FLOAT */
+			0x0,		/* 0 */
 
 			0x0
         }
@@ -142,6 +156,10 @@ static const Example1_MIDL_TYPE_FORMAT_STRING Example1__MIDL_TypeFormatString =
 			0x11, 0x8,	/* FC_RP [simple_pointer] */
 /*  4 */	
 			0x22,		/* FC_C_CSTRING */
+			0x5c,		/* FC_PAD */
+/*  6 */	
+			0x11, 0xc,	/* FC_RP [alloced_on_stack] [simple_pointer] */
+/*  8 */	0xa,		/* FC_FLOAT */
 			0x5c,		/* FC_PAD */
 
 			0x0

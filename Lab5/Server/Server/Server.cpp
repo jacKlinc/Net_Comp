@@ -7,11 +7,15 @@
 // File Example1Server.cpp
 #include <iostream>
 #include "Example1_h.h"
+using namespace std;
 
+float mul(float par1, float par2);
 // Server function.
 void Output(
-	/* [string][in] */ const unsigned char *szOutput){
+	/* [string][in] */ const unsigned char *szOutput, float myval, float* f3){
 	std::cout << szOutput << std::endl;
+	cout << "\n received myval as " << myval;
+	*f3 = myval * myval;
 }
 
 // Naive security callback.
@@ -54,7 +58,7 @@ int main( ) {
 		1, // Recommended minimum number of threads.
 		RPC_C_LISTEN_MAX_CALLS_DEFAULT, // Recommended maximum number of threads.
 		FALSE); // Start listening now.
-
+	mul(20, 39);
 	//std::cout << "Wagawan\n";
 	if (status)
 		exit(status);
@@ -70,4 +74,8 @@ void* __RPC_USER midl_user_allocate(size_t size) {
 // Memory deallocation function for RPC.
 void __RPC_USER midl_user_free(void* p) {
 	free(p);
+}
+
+float mul(float par1, float par2) {
+	return par1 * par2;
 }

@@ -1,17 +1,21 @@
 // Client.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*
+	Code is from: https://www.codeproject.com/Articles/4837/Introduction-to-RPC-Part
+	Written by Anders Dalvander
+	Edited by Jack
+*/
 
 #include "pch.h"
 #include <iostream>
-
-// File Example1Client.cpp
 #include <iostream>
 #include "Example1_h.h"
+using namespace std;
 
 int main( ) {
 	RPC_STATUS status;
 	RPC_CSTR szStringBinding = NULL;
-
+	float myval, f3;
+	
 	// Creates a string binding handle.
 	// This function is nothing more than a printf.
 	// Connection is not done here.
@@ -42,7 +46,11 @@ int main( ) {
 		// Calls the RPC function. The hExample1Binding binding handle
 		// is used implicitly.
 		// Connection is done here.
-		Output((const unsigned char *)"Hello RPC World!");
+		//Output((const unsigned char *)"Hello RPC World!");
+		cout << "\nenter a value: ";
+		cin >> myval;									// myval-input val
+		Output((const unsigned char*)"Hello!", myval, &f3);
+		cout << "\nafter rpc f3 is " << f3;				// f3 is ret val
 	}
 		RpcExcept(1) {
 		std::cerr << "Runtime reported exception " << RpcExceptionCode( )

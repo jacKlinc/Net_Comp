@@ -18,5 +18,6 @@ interface Example1 // The interface is named Example1
 {
 	// A function that takes a zero-terminated string.
 	void Output(
-		[in, string] const char* szOutput);
+		[in, string] const char* szOutputszOutput, [in] float receivedValue, [out] float*
+		returnptr);
 }

@@ -56,7 +56,9 @@ extern "C"{
 /* [implicit_handle][version][uuid] */ 
 
 void Output( 
-    /* [string][in] */ const unsigned char *szOutput);
+    /* [string][in] */ const unsigned char *szOutputszOutput,
+    /* [in] */ float receivedValue,
+    /* [out] */ float *returnptr);
 
 
 extern handle_t hExample1Binding;

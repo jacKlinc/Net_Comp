@@ -19,7 +19,8 @@ interface Example1					// The interface body
 {
 	// A function that takes a zero-terminated string.
 	void Output(
-		[in, string] const char* szOutput);
+		[in, string] const char* szOutput, [in] float receivedValues, [out] float* 
+		returnptr);
 }		// input			
 /*
 	> Compiling IDL to get app header file and server stub
