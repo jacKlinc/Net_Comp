@@ -7,6 +7,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLLClient", "DLLClient\DLLC
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "..\Client\Client\Client.vcxproj", "{49E2FF16-05FB-49D2-9F4A-D1FC1016C6ED}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server", "..\Server\Server\Server.vcxproj", "{164B31DE-6B9F-48CD-94A7-461BC7A9589A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7AF7D86F-AB89-48FA-9E30-562757676D66}"
+	ProjectSection(SolutionItems) = preProject
+		DLLClient\DLLClient.h = DLLClient\DLLClient.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +38,14 @@ Global
 		{49E2FF16-05FB-49D2-9F4A-D1FC1016C6ED}.Release|x64.Build.0 = Release|x64
 		{49E2FF16-05FB-49D2-9F4A-D1FC1016C6ED}.Release|x86.ActiveCfg = Release|Win32
 		{49E2FF16-05FB-49D2-9F4A-D1FC1016C6ED}.Release|x86.Build.0 = Release|Win32
+		{164B31DE-6B9F-48CD-94A7-461BC7A9589A}.Debug|x64.ActiveCfg = Debug|x64
+		{164B31DE-6B9F-48CD-94A7-461BC7A9589A}.Debug|x64.Build.0 = Debug|x64
+		{164B31DE-6B9F-48CD-94A7-461BC7A9589A}.Debug|x86.ActiveCfg = Debug|Win32
+		{164B31DE-6B9F-48CD-94A7-461BC7A9589A}.Debug|x86.Build.0 = Debug|Win32
+		{164B31DE-6B9F-48CD-94A7-461BC7A9589A}.Release|x64.ActiveCfg = Release|x64
+		{164B31DE-6B9F-48CD-94A7-461BC7A9589A}.Release|x64.Build.0 = Release|x64
+		{164B31DE-6B9F-48CD-94A7-461BC7A9589A}.Release|x86.ActiveCfg = Release|Win32
+		{164B31DE-6B9F-48CD-94A7-461BC7A9589A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

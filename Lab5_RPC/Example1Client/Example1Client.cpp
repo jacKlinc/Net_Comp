@@ -1,6 +1,6 @@
 // File Example1Client.cpp
 #include <iostream>
-#include "C:\Users\Keyser Soze\Net_Comp\Lab5_RPC\Example1\Example1.h"
+#include "../Example1/Example1.h"
 
 int main()
 {
