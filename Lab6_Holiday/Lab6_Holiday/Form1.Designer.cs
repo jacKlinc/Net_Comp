@@ -48,6 +48,7 @@
             this.ChooseYear.Size = new System.Drawing.Size(97, 21);
             this.ChooseYear.TabIndex = 0;
             this.ChooseYear.Text = "Year";
+            this.ChooseYear.SelectedIndexChanged += new System.EventHandler(this.ChooseYear_SelectedIndexChanged);
             // 
             // Request
             // 
@@ -57,6 +58,7 @@
             this.Request.TabIndex = 1;
             this.Request.Text = "Search";
             this.Request.UseVisualStyleBackColor = true;
+            this.Request.Click += new System.EventHandler(this.Request_Click);
             // 
             // textBox1
             // 
@@ -65,6 +67,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(287, 174);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
