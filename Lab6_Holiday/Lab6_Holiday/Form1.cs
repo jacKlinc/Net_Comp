@@ -13,8 +13,15 @@ namespace Lab6_Holiday
     public partial class Form1 : Form
     {
         HolidayService2 myHols = new HolidayService2();
-        Country countryC = Country.IrelandRepublicOf; // Country is an enum and must be accessed kinda like an array
-        int yearSel;
+         // Country is an enum and must be accessed kinda like an array
+
+        string hCode;
+        HolidayType hType; // enum: x
+        HolidayDateType dType;
+        BankHoliday bankHType;
+        System.DateTime hDate;
+        RegionCode appRegions; // inherits CodeDescriptionBase
+        string relatedActHCode, cField, desField;
 
         public Form1()
         {
@@ -24,22 +31,29 @@ namespace Lab6_Holiday
 
         private void Request_Click(object sender, EventArgs e)
         {
-            Holiday[] Holibop = myHols.GetHolidaysForYear(countryC, 2019); // pass the countryCode (IrelandRepublicOf) and the year (int yearSel)
-            yearSel = Convert.ToInt32(ChooseYear.SelectedIndex);
+            Holiday[] Holibop = myHols.GetHolidaysForYear(Country.IrelandRepublicOf, 2021); // pass the countryCode (IrelandRepublicOf) and the year (int yearSel)
+            int yearSel = Convert.ToInt32(ChooseYear.SelectedIndex);
             // this returns an array of Holiday objects
-            //for (int i = 0; i < Holibop.Length; i++)
-            //{
-            Console.WriteLine(yearSel); // how to print class Holibop array 
-            //}
-            //textBox1.Text = "test";
+            for (int i = 0; i < Holibop.Length; i++)
+            {
+                hCode = Holibop[i].HolidayCode;
+                hType = Holibop[i].HolidayType;
+                dType = Holibop[i].DateType;
+                bankHType = Holibop[i].BankHoliday;
+                hDate = Holibop[i].Date;
+                relatedActHCode = Holibop[i].RelatedHolidayCode;
+                /*for (int j = 0; j < Holibop[i].ApplicableRegions.Length; j++)
+                {
+                    hCode = relatedActHCode[j].GetHashCode;
+                }*/
+                textBox1.Text = "Your holiers:" + " " + hCode + " " + hType + " " + dType + " " + bankHType + " " + hDate + " " + relatedActHCode;
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {}
 
         private void ChooseYear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //yearSel = Convert.ToInt32(ChooseYear.SelectedIndex);
-        }
+        {}
     }
 }
