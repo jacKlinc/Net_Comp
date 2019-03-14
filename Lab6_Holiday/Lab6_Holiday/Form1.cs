@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.IO;
 
 namespace Lab6_Holiday
 {
@@ -20,8 +22,8 @@ namespace Lab6_Holiday
         HolidayDateType dType;
         BankHoliday bankHType;
         System.DateTime hDate;
-        RegionCode appRegions; // inherits CodeDescriptionBase
-        string relatedActHCode, cField, desField;
+        //RegionCode appRegions; // inherits CodeDescriptionBase
+        string relatedActHCode;// cField, desField;
 
         public Form1()
         {
@@ -31,8 +33,10 @@ namespace Lab6_Holiday
 
         private void Request_Click(object sender, EventArgs e)
         {
-            Holiday[] Holibop = myHols.GetHolidaysForYear(Country.IrelandRepublicOf, 2021); // pass the countryCode (IrelandRepublicOf) and the year (int yearSel)
-            int yearSel = Convert.ToInt32(ChooseYear.SelectedIndex);
+            int yearSel = Int32.Parse(ChooseYear.Text);
+            Console.WriteLine(yearSel);
+            Holiday[] Holibop = myHols.GetHolidaysForYear(Country.IrelandRepublicOf, yearSel); // pass the countryCode (IrelandRepublicOf) and the year (int yearSel)
+            
             // this returns an array of Holiday objects
             for (int i = 0; i < Holibop.Length; i++)
             {
@@ -42,11 +46,14 @@ namespace Lab6_Holiday
                 bankHType = Holibop[i].BankHoliday;
                 hDate = Holibop[i].Date;
                 relatedActHCode = Holibop[i].RelatedHolidayCode;
+
+                //hCode = GetXMLAsString(hCode);
                 /*for (int j = 0; j < Holibop[i].ApplicableRegions.Length; j++)
                 {
                     hCode = relatedActHCode[j].GetHashCode;
-                }*/
-                textBox1.Text = "Your holiers:" + " " + hCode + " " + hType + " " + dType + " " + bankHType + " " + hDate + " " + relatedActHCode;
+                }
+                */
+                textBox1.Text += "\r\nYour holiers:" + "\r\n " + hCode + " \r\n" + hType + " \r\n" + dType + " \r\n" + bankHType + "\r \n" + hDate + " \r\n" + relatedActHCode;
             }
         }
 
