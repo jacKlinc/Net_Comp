@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using System.IO;
 
 namespace Lab6_Holiday
 {
@@ -34,7 +32,6 @@ namespace Lab6_Holiday
         private void Request_Click(object sender, EventArgs e)
         {
             int yearSel = Int32.Parse(ChooseYear.Text);
-            Console.WriteLine(yearSel);
             Holiday[] Holibop = myHols.GetHolidaysForYear(Country.IrelandRepublicOf, yearSel); // pass the countryCode (IrelandRepublicOf) and the year (int yearSel)
             
             // this returns an array of Holiday objects
