@@ -15,7 +15,7 @@
   independent of the C++ native heap; because of this, you cannot use normal C++ pointers so tracking
   handles must be used instead, using the carat symbol ^ (same as reference in C++).
   
-  ```cpp 
+  ```csharp
   String^ someString = gcnew String(L"Hello");
   ```
   
@@ -41,4 +41,4 @@
   
 
 ## Lab4: DLL for C# Calculator
-  
+
