@@ -52,3 +52,32 @@ given to a fellow student with a similar WinForm calculator project and the fucn
 
 
 ## Lab5: RPC Procedure from the Calculator
+Create a client/server application using Microsoft RPC
+
+### RPC Explanation
+First, an interface must be developed to set down rules for both server and client so no problems 
+arise. This interface consists of an interface name, attributes, optional definitions, and the procedure 
+declarations. They are written in the Microsoft Interface Definition Language (MIDL) using the .idl 
+file extension. This is IDL is then compiled to give the server and client stubs which are written in
+C++. To distinguish this RPC application from others online a UUID must be used.
+
+```csharp
+[
+   uuid(00000001-EAF3-4A7A-A0F2-BCE4C30DA77E),
+   version(1.0)						// This is version 1.0 of this interface.
+]
+interface Example1 
+{
+   void Output(
+      [in, string] const char* szOutput);
+}
+```
+
+The code above specifies a UUID followed by the RPC version. The interface shown indicates the inputs 
+and outputs of the program, with this one taking one input in string format. After compiling the IDL 
+file, a header file is made which can be inlcuded by both the client and server code. The server stub
+is compiled with server/client C++ file, the RPC library is then linked to make the .exe.
+
+### Lab5 
+I attempted to make my own RPC program in VS 2017 but ran into many linker errors and couldn't solve 
+them so instead used the example given by our lecturer.
