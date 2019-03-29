@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DLLMathFunc;
+//using DLLMathFunc;
 
 namespace Lab2_CSharpCalc
 {
@@ -18,6 +18,7 @@ namespace Lab2_CSharpCalc
 		String curOp;
 		float runningTotal;
         float currentVal;
+        JackWeb.MyWebService WebObj = new JackWeb.MyWebService();
         public Form1()
         {
             InitializeComponent();
@@ -212,17 +213,17 @@ namespace Lab2_CSharpCalc
         }
 
         private void button17_Click(object sender, EventArgs e) {
-            sqrtFunc(runningTotal);
+            textBox1.Text = Convert.ToString(WebObj.SquaredMethod(runningTotal)); // this calls the sqaure method from the web service
             prevOp = "+";
         }
 
         private void button18_Click(object sender, EventArgs e) {
-            percentFunc(runningTotal);
+            //percentFunc(runningTotal);
             prevOp = "+";
         }
 
         private void button19_Click(object sender, EventArgs e) {
-            squaredFunc(runningTotal);
+            //squaredFunc(runningTotal);
             prevOp = "+";
         }
     }

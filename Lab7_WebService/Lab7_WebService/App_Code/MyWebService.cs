@@ -39,4 +39,8 @@ public class MyWebService : System.Web.Services.WebService
         return firstNum + secondNum;
     }
 
+    [WebMethod]
+    public float SquaredMethod(float sqNum) {
+        return sqNum*sqNum;
+    }
 }

@@ -78,26 +78,26 @@ namespace Lab2_Calc {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button7 = (gcnew System::Windows::Forms::Button());
-			this->button8 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->button9 = (gcnew System::Windows::Forms::Button());
-			this->button10 = (gcnew System::Windows::Forms::Button());
-			this->button11 = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->button12 = (gcnew System::Windows::Forms::Button());
-			this->button13 = (gcnew System::Windows::Forms::Button());
-			this->button14 = (gcnew System::Windows::Forms::Button());
-			this->button15 = (gcnew System::Windows::Forms::Button());
-			this->button16 = (gcnew System::Windows::Forms::Button());
-			this->button17 = (gcnew System::Windows::Forms::Button());
-			this->button18 = (gcnew System::Windows::Forms::Button());
-			this->SuspendLayout();
+			this->button1 = (gcnew System::Windows::Forms::Button( ));
+			this->button7 = (gcnew System::Windows::Forms::Button( ));
+			this->button8 = (gcnew System::Windows::Forms::Button( ));
+			this->button2 = (gcnew System::Windows::Forms::Button( ));
+			this->button3 = (gcnew System::Windows::Forms::Button( ));
+			this->button4 = (gcnew System::Windows::Forms::Button( ));
+			this->button5 = (gcnew System::Windows::Forms::Button( ));
+			this->button6 = (gcnew System::Windows::Forms::Button( ));
+			this->button9 = (gcnew System::Windows::Forms::Button( ));
+			this->button10 = (gcnew System::Windows::Forms::Button( ));
+			this->button11 = (gcnew System::Windows::Forms::Button( ));
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox( ));
+			this->button12 = (gcnew System::Windows::Forms::Button( ));
+			this->button13 = (gcnew System::Windows::Forms::Button( ));
+			this->button14 = (gcnew System::Windows::Forms::Button( ));
+			this->button15 = (gcnew System::Windows::Forms::Button( ));
+			this->button16 = (gcnew System::Windows::Forms::Button( ));
+			this->button17 = (gcnew System::Windows::Forms::Button( ));
+			this->button18 = (gcnew System::Windows::Forms::Button( ));
+			this->SuspendLayout( );
 			// 
 			// button1
 			// 
@@ -285,6 +285,7 @@ namespace Lab2_Calc {
 			this->button18->TabIndex = 23;
 			this->button18->Text = L"sqrt";
 			this->button18->UseVisualStyleBackColor = true;
+			this->button18->Click += gcnew System::EventHandler(this, &Form1::button18_Click);
 			// 
 			// Form1
 			// 
@@ -313,7 +314,7 @@ namespace Lab2_Calc {
 			this->Name = L"Form1";
 			this->Text = L"Form1";
 			this->ResumeLayout(false);
-			this->PerformLayout();
+			this->PerformLayout( );
 
 		}
 #pragma endregion
@@ -530,7 +531,10 @@ private: System::Void button17_Click(System::Object^  sender, System::EventArgs^
 			this->textBox1->Text = Convert::ToString(runningTotal);
 			prevOp = "/";
 			firstFlag = true;
+
+			// call web service
 		 }
+private: System::Void button18_Click(System::Object^  sender, System::EventArgs^  e) { }
 };
 }
 

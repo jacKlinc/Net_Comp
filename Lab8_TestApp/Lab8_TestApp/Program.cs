@@ -19,5 +19,8 @@ namespace Lab8_TestApp
                 Console.ReadKey(true);
             }
         }
+        float SqauredMethod(float someSqr) {
+            return someSqr * someSqr;
+        }
     }
 }
