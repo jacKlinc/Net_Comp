@@ -213,7 +213,8 @@ namespace Lab2_CSharpCalc
         }
 
         private void button17_Click(object sender, EventArgs e) {
-            textBox1.Text = Convert.ToString(WebObj.SquaredMethod(runningTotal)); // this calls the sqaure method from the web service
+            //textBox1.Text = Convert.ToString(WebObj.SquaredMethod(runningTotal)); // this calls the sqaure method from the web service
+            textBox1.Text = Convert.ToString(WebObj.SquaredMethod(runningTotal));
             prevOp = "+";
         }
 
