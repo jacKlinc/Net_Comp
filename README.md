@@ -78,6 +78,81 @@ and outputs of the program, with this one taking one input in string format. Aft
 file, a header file is made which can be inlcuded by both the client and server code. The server stub
 is compiled with server/client C++ file, the RPC library is then linked to make the .exe.
 
+
+#### Important Definitions:
+*Endpoint:* are ports (or port groups) that the server listens for client requests. The server maintains
+a database of these endpoints, this is called an endpoint map.
+
+*Binding:* is created by the client program when the client wants to establish 
+a connection to the server. All connection info is in the binding.
+
+*Protocol Sequence:* when a client and server are communicating, a common language must be used, this 
+is called a protocol sequence. In RPC's case it is a string with three components: RPC protocol (NACN), 
+transport protocol (HTTP), and network protocol (IP).
+
+#### Binding Handles
+
+The client in RPC needs to create a binding handle which tells the run time which server 
+to "bind" with, and how to do so. Below is an example.
+``` csharp
+// client.cpp
+RPC_STATUS status;     // Platform-specific status code type
+unsigned char* szStringBinding = NULL;			// Creates a string binding handle.
+
+status = RpcStringBindingCompose(
+    NULL, // UUID to bind to.
+    reinterpret_cast<unsigned char*>("ncacn_ip_tcp"), // NACN & TCP/HTTP better for remote coms
+    reinterpret_cast<unsigned char*>("localhost"),	// IP addr to use                                               
+    reinterpret_cast<unsigned char*>("4747"),		    // Port to use.
+    NULL,		// Protocol dependent network options to use.
+    &szStringBinding);								   // String binding output.
+    
+status = RpcBindingFromStringBinding(
+    szStringBinding, // The string binding to validate.
+    &hExample1Binding // Put the result in the implicit binding
+); 
+```
+
+#### Server Availabilty
+
+Before the server can accept requests, it must be available on the network. 
+
+``` csharp
+// server.cpp
+status = RpcServerUseProtseqEp(
+    reinterpret_cast<unsigned char*>("ncacn_ip_tcp"), 
+    RPC_C_PROTSEQ_MAX_REQS_DEFAULT,     // Backlog queue length for TCP/IP (default)
+    reinterpret_cast<unsigned char*>("4747"), // Endpoint (port no.)
+    NULL);          // Security descriptor (none)
+```
+
+The function above is passed the protocol sequence, the queue length, endpoint and security.
+
+
+#### Endpoints
+
+
+Endpoint maps enable the client program to identify the server's listening ports. To do this, the interface
+used by both the client and program must be passed, the binding vector, optional UUID object and a comment string.
+
+``` csharp
+// server.cpp
+status = RpcEpRegister(
+    MyInterface_v1_0_s_ifspec,  // this is the IDL file
+    rpcBindingVector,           // list of handles server can receive on
+    NULL,
+    NULL);
+```
+
+The client will now know where to send requests. After all steps are completed the client and server 
+can communicate.
+
+
+#### Exception Handling
+
+
+
+
 ### Lab5 
 I attempted to make my own RPC program in VS 2017 but ran into many linker errors and couldn't solve 
 them so instead used the example given by our lecturer.
