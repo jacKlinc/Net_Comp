@@ -24,6 +24,21 @@ namespace Lab8_REST_WCF
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "json/{id}")]
         string JSONData(string id);
+        
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "sqr/{myNum}")]
+        string SquareNum(string myNum);
+        /*
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "sqr?nyNum={myNum}")]
+        float SquareNum(float myNum);
+        */
     }
 }
 

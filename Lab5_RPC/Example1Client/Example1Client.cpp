@@ -4,61 +4,46 @@
 
 int main()
 {
-   RPC_STATUS status;
-   unsigned char* szStringBinding = NULL;
+   RPC_STATUS status;									// Platform-specific status code type
+   unsigned char* szStringBinding = NULL;				// Creates a string binding handle.
 
-   // Creates a string binding handle.
-   // This function is nothing more than a printf.
-   // Connection is not done here.
    status = RpcStringBindingCompose(
       NULL, // UUID to bind to.
-      reinterpret_cast<unsigned char*>("ncacn_ip_tcp"), // Use TCP/IP
-                                                        // protocol.
-      reinterpret_cast<unsigned char*>("localhost"), // TCP/IP network
-                                                     // address to use.
-      reinterpret_cast<unsigned char*>("4747"), // TCP/IP port to use.
-      NULL, // Protocol dependent network options to use.
-      &szStringBinding); // String binding output.
+      reinterpret_cast<unsigned char*>("ncacn_ip_tcp"), // Transport protocol to use                                                         
+      reinterpret_cast<unsigned char*>("localhost"),	// IP addr to use                                               
+      reinterpret_cast<unsigned char*>("4747"),			// Port to use.
+      NULL,												// Protocol dependent network options to use.
+      &szStringBinding);								// String binding output.
 
-   if (status)
+   if (status)			// Validates format of string binding handle and converts to binding handle.
       exit(status);
 
-   // Validates the format of the string binding handle and converts
-   // it to a binding handle.
-   // Connection is not done here either.
    status = RpcBindingFromStringBinding(
       szStringBinding, // The string binding to validate.
-      &hExample1Binding); // Put the result in the implicit binding
-                          // handle defined in the IDL file.
+      &hExample1Binding // Put the result in the implicit binding
+   ); 
 
    if (status)
       exit(status);
 
-   RpcTryExcept
-   {
-      // Calls the RPC function. The hExample1Binding binding handle
-      // is used implicitly.
-      // Connection is done here.
-      Output("Hello Implicit RPC World!");
+   RpcTryExcept {
+      Output("Hello Implicit RPC World!"); // Calls the Output function made in the IDL
    }
-   RpcExcept(1)
-   {
-      std::cerr << "Runtime reported exception " << RpcExceptionCode()
-                << std::endl;
+   RpcExcept(1) {
+      cerr << "Runtime reported exception " << RpcExceptionCode() << endl;
    }
    RpcEndExcept
 
-   // Free the memory allocated by a string.
-   status = RpcStringFree(
-      &szStringBinding); // String to be freed.
+   status = RpcStringFree(			// Free the memory allocated by a string.
+      &szStringBinding
+   ); 
 
    if (status)
       exit(status);
 
-   // Releases binding handle resources and disconnects from the server.
    status = RpcBindingFree(
-      &hExample1Binding); // Frees the implicit binding handle defined in
-                          // the IDL file.
+      &hExample1Binding
+   ); // Frees implicit binding handle defined in IDL.
 
    if (status)
       exit(status);

@@ -17,5 +17,12 @@ namespace Lab8_REST_WCF
         public string JSONData(string id) {
             return "You requested product " + id;
         }
+        /*public float SquareNum(float myNum) {
+            return myNum * myNum;
+        }*/
+        public string SquareNum(string myNum) {
+            int num = Convert.ToInt32(myNum);
+            return (Convert.ToString(num * num));
+        }
     }
 }

@@ -11,10 +11,12 @@ namespace Lab8_TestApp
             {
                 Console.WriteLine("testing xml function\n");
                 var response =
-               myClient.DownloadString("http://localhost:51033/Service1.svc/xml/123"); // change to your port number and service file
+                myClient.DownloadString("http://localhost:51033/Service1.svc/xml/123"); // change to your port number and service file
                 Console.WriteLine(response);
                 Console.WriteLine("\n\ntesting json function\n");
                 response = myClient.DownloadString("http://localhost:51033/Service1.svc/json/456");
+                Console.WriteLine(response);
+                response = myClient.DownloadString("http://localhost:51033/Service1.svc/SqrN/123");
                 Console.WriteLine(response);
                 Console.ReadKey(true);
             }
