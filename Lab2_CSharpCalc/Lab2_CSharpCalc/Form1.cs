@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Runtime;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -224,7 +226,14 @@ namespace Lab2_CSharpCalc
         }
 
         private void button19_Click(object sender, EventArgs e) {
-            //squaredFunc(runningTotal);
+            currentVal = Convert.ToSingle(textBox1.Text);
+            Uri temp2 = new Uri(new Uri("http://localhost:62194/Service1.svc/sqr/"), textBox1.Text);
+            //textBox1.Text = Convert.ToString(temp2);
+            using (WebClient myClient = new WebClient()) {
+                var response = myClient.DownloadString(temp2); // needs to be Uri
+                textBox1.Text = response;
+                runningTotal = Convert.ToInt32(response);
+            }
             prevOp = "+";
         }
     }

@@ -16,13 +16,10 @@ namespace Lab8_TestApp
                 Console.WriteLine("\n\ntesting json function\n");
                 response = myClient.DownloadString("http://localhost:51033/Service1.svc/json/456");
                 Console.WriteLine(response);
-                response = myClient.DownloadString("http://localhost:51033/Service1.svc/SqrN/123");
-                Console.WriteLine(response);
+                response = myClient.DownloadString("http://localhost:51033/Service1.svc/sqr/123");
+                Console.WriteLine("\nSqaured Num:" + response);
                 Console.ReadKey(true);
             }
-        }
-        float SqauredMethod(float someSqr) {
-            return someSqr * someSqr;
         }
     }
 }

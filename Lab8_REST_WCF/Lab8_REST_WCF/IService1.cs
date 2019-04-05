@@ -28,7 +28,7 @@ namespace Lab8_REST_WCF
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare    ,
             UriTemplate = "sqr/{myNum}")]
         string SquareNum(string myNum);
         /*
