@@ -6,9 +6,14 @@ using System.ServiceModel;
 using System.Text;
 using System.ServiceModel.Web;
 
+/*
+ * Represents a binding that a Windows Communication Foundation (WCF) 
+ * service can use to configure and expose endpoints that are able to 
+ * communicate with ASMX-based Web services and clients and other services 
+ * that conform to the WS-I Basic Profile 1.1.*/
+
 namespace Lab8_REST_WCF
-{
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
+{   
     [ServiceContract]
     public interface IService1
     {
@@ -28,7 +33,7 @@ namespace Lab8_REST_WCF
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Bare    ,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "sqr/{myNum}")]
         string SquareNum(string myNum);
         /*
