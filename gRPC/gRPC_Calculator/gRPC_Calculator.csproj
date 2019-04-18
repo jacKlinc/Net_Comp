@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Grpc.Tools.1.20.0\build\Grpc.Tools.props" Condition="Exists('..\packages\Grpc.Tools.1.20.0\build\Grpc.Tools.props')" />
+  <Import Project="packages\Grpc.Tools.1.20.0\build\Grpc.Tools.props" Condition="Exists('packages\Grpc.Tools.1.20.0\build\Grpc.Tools.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9F6BCA5A-6A54-4247-BD66-73C96A73B04D}</ProjectGuid>
+    <ProjectGuid>{18B948DD-F31B-4240-9CE2-DD57FCDF2F7C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Lab2_CSharpCalc</RootNamespace>
-    <AssemblyName>Lab2_CSharpCalc</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>gRPC_Calculator</RootNamespace>
+    <AssemblyName>gRPC_Calculator</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -36,25 +35,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GreeterClient, Version=1.0.7046.29059, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\GreeterClient.dll</HintPath>
+    <Reference Include="Google.Protobuf, Version=3.7.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.7.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="Grpc.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grpc.Core.1.20.0\lib\net45\Grpc.Core.dll</HintPath>
+      <HintPath>packages\Grpc.Core.1.20.0\lib\net45\Grpc.Core.dll</HintPath>
     </Reference>
     <Reference Include="Grpc.Core.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
-      <HintPath>..\packages\Grpc.Core.Api.1.20.0\lib\net45\Grpc.Core.Api.dll</HintPath>
+      <HintPath>packages\Grpc.Core.Api.1.20.0\lib\net45\Grpc.Core.Api.dll</HintPath>
     </Reference>
-    <Reference Include="System">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    <Reference Include="SquaredClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SquaredClient\bin\Debug\SquaredClient.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Interactive.Async, Version=3.2.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Interactive.Async.3.2.0\lib\net46\System.Interactive.Async.dll</HintPath>
+      <HintPath>packages\System.Interactive.Async.3.2.0\lib\net45\System.Interactive.Async.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,14 +72,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Web References\JackWeb\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -101,46 +91,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Web References\JackWeb\MyWebService.wsdl" />
-    <None Include="Web References\JackWeb\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://localhost/JackWeb/MyWebService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\JackWeb\</RelPath>
-      <UpdateFromURL>http://localhost/JackWeb/MyWebService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>Lab2_CSharpCalc_localhost_MyWebService</CachedSettingsPropName>
-    </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web References\JackWeb\MyWebService.disco" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Grpc.Core.1.20.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.20.0\build\net45\Grpc.Core.targets')" />
+  <Import Project="packages\Grpc.Core.1.20.0\build\net45\Grpc.Core.targets" Condition="Exists('packages\Grpc.Core.1.20.0\build\net45\Grpc.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Grpc.Core.1.20.0\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Core.1.20.0\build\net45\Grpc.Core.targets'))" />
-    <Error Condition="!Exists('..\packages\Grpc.Tools.1.20.0\build\Grpc.Tools.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Tools.1.20.0\build\Grpc.Tools.props'))" />
-    <Error Condition="!Exists('..\packages\Grpc.Tools.1.20.0\build\Grpc.Tools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Tools.1.20.0\build\Grpc.Tools.targets'))" />
+    <Error Condition="!Exists('packages\Grpc.Core.1.20.0\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grpc.Core.1.20.0\build\net45\Grpc.Core.targets'))" />
+    <Error Condition="!Exists('packages\Grpc.Tools.1.20.0\build\Grpc.Tools.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grpc.Tools.1.20.0\build\Grpc.Tools.props'))" />
+    <Error Condition="!Exists('packages\Grpc.Tools.1.20.0\build\Grpc.Tools.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grpc.Tools.1.20.0\build\Grpc.Tools.targets'))" />
   </Target>
-  <Import Project="..\packages\Grpc.Tools.1.20.0\build\Grpc.Tools.targets" Condition="Exists('..\packages\Grpc.Tools.1.20.0\build\Grpc.Tools.targets')" />
+  <Import Project="packages\Grpc.Tools.1.20.0\build\Grpc.Tools.targets" Condition="Exists('packages\Grpc.Tools.1.20.0\build\Grpc.Tools.targets')" />
 </Project>

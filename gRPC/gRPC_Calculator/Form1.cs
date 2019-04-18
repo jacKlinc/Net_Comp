@@ -10,35 +10,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-//using System.ServiceModel;
-using GreeterClient;
+using SquaredClient;
 
-//using DLLMathFunc;
-
-namespace Lab2_CSharpCalc
+namespace gRPC_Calculator
 {
-    //[ServiceContract(Namespace = "http://localhost:62914/RestServiceImpl.svc")]
-    //public interface
-
     public partial class Form1 : Form
     {
-        //[DllImport @"GreeterClient")]
-        //public float myClient(float nn);
+        public bool firstFlag;
+        public String prevOp;
+		//String curOp;
+		public float runningTotal;
+        //float curVal;
 
-        bool firstFlag;
-        String prevOp;
-		String curOp;
-		float runningTotal;
-        float currentVal;
-        JackWeb.MyWebService WebObj = new JackWeb.MyWebService();
-        GreeterClient.Program gRPC = new GreeterClient.Program();
+        SquaredClient.ClientProgram gRPC = new SquaredClient.ClientProgram();
         public Form1()
         {
             InitializeComponent();
             firstFlag = true;
             prevOp = "+";
             runningTotal = 0;
-            currentVal = 0;
+            //curVal = 0;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) { }
@@ -136,98 +127,98 @@ namespace Lab2_CSharpCalc
             }
         }
 
-        // Operators
-        private void button12_Click(object sender, EventArgs e) {
-            currentVal = Convert.ToSingle(textBox1.Text);
+        // Operators: add
+        private void button12_Click(object sender, EventArgs e) { 
+            float curVal = Convert.ToSingle(textBox1.Text);
+
             if (prevOp == "+") {
-                runningTotal += currentVal;
+                runningTotal += curVal;
             } else if (prevOp == "-") {
-                runningTotal -= currentVal;
+                runningTotal -= curVal;
             } else if (prevOp == "*") {
-                runningTotal *= currentVal;
+                runningTotal *= curVal;
             } else if (prevOp == "/") {
-                runningTotal /= currentVal;
+                runningTotal /= curVal;
             }
             textBox1.Text = Convert.ToString(runningTotal);
             prevOp = "+";
             firstFlag = true;
         }
-
+        // sub
         private void button10_Click(object sender, EventArgs e) {
-            currentVal = Convert.ToSingle(textBox1.Text);
+            float curVal = Convert.ToSingle(textBox1.Text);
             if (prevOp == "+") {
-                runningTotal += currentVal;
+                runningTotal += curVal;
             } else if (prevOp == "-") {
-                runningTotal -= currentVal;
+                runningTotal -= curVal;
             } else if (prevOp == "*") {
-                runningTotal *= currentVal;
+                runningTotal *= curVal;
             } else if (prevOp == "/") {
-                runningTotal /= currentVal;
+                runningTotal /= curVal;
             }
             textBox1.Text = Convert.ToString(runningTotal);
             prevOp = "-";
             firstFlag = true;
         }
-
+        // mul
         private void button15_Click(object sender, EventArgs e) {
-            currentVal = Convert.ToSingle(textBox1.Text);
+            float curVal = Convert.ToSingle(textBox1.Text);
             if (prevOp == "+") {
-                runningTotal += currentVal;
+                runningTotal += curVal;
             } else if (prevOp == "-") {
-                runningTotal -= currentVal;
+                runningTotal -= curVal;
             } else if (prevOp == "*") {
-                runningTotal *= currentVal;
+                runningTotal *= curVal;
             } else if (prevOp == "/") {
-                runningTotal /= currentVal;
+                runningTotal /= curVal;
             }
             textBox1.Text = Convert.ToString(runningTotal);
             prevOp = "*";
             firstFlag = true;
         }
-
+        // div
         private void button14_Click(object sender, EventArgs e) {
-            currentVal = Convert.ToSingle(textBox1.Text);
+            float curVal = Convert.ToSingle(textBox1.Text);
             if (prevOp == "+") {
-                runningTotal += currentVal;
+                runningTotal += curVal;
             } else if (prevOp == "-") {
-                runningTotal -= currentVal;
+                runningTotal -= curVal;
             } else if (prevOp == "*") {
-                runningTotal *= currentVal;
+                runningTotal *= curVal;
             } else if (prevOp == "/") {
-                runningTotal /= currentVal;
+                runningTotal /= curVal;
             }
             textBox1.Text = Convert.ToString(runningTotal);
             prevOp = "/";
             firstFlag = true;
         }
-
+        // clr
         private void button13_Click(object sender, EventArgs e) {
             firstFlag = true;
             prevOp = "+";
             runningTotal = 0;
-            currentVal = 0;
             textBox1.Text = "0";
         }
-
+        // equals
         private void button16_Click(object sender, EventArgs e) {
-            currentVal = Convert.ToSingle(textBox1.Text);
+            float curVal = Convert.ToSingle(textBox1.Text);
             if (prevOp == "+") {
-                runningTotal += currentVal;
+                runningTotal += curVal;
             } else if (prevOp == "-") {
-                runningTotal -= currentVal;
+                runningTotal -= curVal;
             } else if (prevOp == "*") {
-                runningTotal *= currentVal;
+                runningTotal *= curVal;
             } else if (prevOp == "/") {
-                runningTotal /= currentVal;
+                runningTotal /= curVal;
             }
             textBox1.Text = Convert.ToString(runningTotal);
-            prevOp = "+";
+            prevOp = "=";
             firstFlag = true;
         }
 
         private void button17_Click(object sender, EventArgs e) {
             //textBox1.Text = Convert.ToString(WebObj.SquaredMethod(runningTotal)); // this calls the sqaure method from the web service
-            textBox1.Text = Convert.ToString(WebObj.SquaredMethod(runningTotal));
+            //textBox1.Text = Convert.ToString(WebObj.SquaredMethod(runningTotal));
             prevOp = "+";
         }
 
@@ -237,27 +228,25 @@ namespace Lab2_CSharpCalc
         }
 
         private void button19_Click(object sender, EventArgs e) {
-            currentVal = Convert.ToSingle(textBox1.Text);
+            float curVal = Convert.ToSingle(textBox1.Text);
+            ClientProgram mySqaure = new ClientProgram();
 
-            /*
-            Uri temp2 = new Uri(new Uri("http://localhost:62194/Service1.svc/sqr/"), textBox1.Text);
-
-            using (WebClient myClient = new WebClient()) {
-                var response = myClient.DownloadString(temp2); // needs to be Uri
-
-                Regex regex = new Regex(@"\d+");            // integers one or more times
-                Match match = regex.Match(response);        // filters out all but regex rule 
-                ///// ############## Need to test############
-
-                textBox1.Text = Convert.ToString(match);
-                runningTotal = Convert.ToSingle(match);
+            if (prevOp == "+") {
+                runningTotal += curVal;
+            } else if (prevOp == "-") {
+                runningTotal -= curVal;
+            } else if (prevOp == "*") {
+                runningTotal *= curVal;
+            } else if (prevOp == "/") {
+                runningTotal /= curVal;
             }
-            */
 
-            
-            textBox1.Text = Convert.ToString(gRPC.CalcClient(currentVal));
-            runningTotal = gRPC.CalcClient(currentVal);
-            prevOp = "+";
+            float sqrVal = mySqaure.RetSquare(runningTotal);
+
+            textBox1.Text = Convert.ToString(sqrVal);
+            runningTotal = sqrVal;
+            prevOp = "^";
+            firstFlag = true;
         }
     }
 }
