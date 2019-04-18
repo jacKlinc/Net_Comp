@@ -24,7 +24,7 @@ namespace SquaredClient
 
             // Create a request 
             var request = new SquareRequest {
-                Inval = 2
+                Inval = x
             };
 
             // Send the request and store the response
