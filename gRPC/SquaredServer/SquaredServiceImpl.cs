@@ -32,10 +32,10 @@ using System.Threading.Tasks;
 
 namespace SquaredServer
 {
-    public class SquaredServiceImpl : SquareService.SquareServiceBase
-    {
-        public override Task<SquareReply> RetSquare(SquareRequest request, ServerCallContext context) {
-            return Task.FromResult(new SquareReply { Outval = request.Inval * request.Inval });
-        }
+public class SquaredServiceImpl : SquareService.SquareServiceBase
+{
+    public override Task<SquareReply> RetSquare(SquareRequest request, ServerCallContext context) {
+        return Task.FromResult(new SquareReply { Outval = request.Inval * request.Inval });
     }
+}
 }

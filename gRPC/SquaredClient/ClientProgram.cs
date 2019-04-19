@@ -14,8 +14,8 @@ namespace SquaredClient
         const string HOST = "localhost";
         const int PORT = 50051;
 
-        public float RetSquare(float x) {
-        //public static void Main(string[] args) { 
+        //public float RetSquare(float x) {
+        public static void Main(string[] args) { 
             // Create a channel
             var channel = new Channel(HOST + ":" + PORT, ChannelCredentials.Insecure);
 
@@ -24,15 +24,15 @@ namespace SquaredClient
 
             // Create a request 
             var request = new SquareRequest {
-                Inval = x
+                Inval = 74
             };
 
             // Send the request and store the response
             var response = client.RetSquare(request);
-            /*channel.ShutdownAsync().Wait();
+            channel.ShutdownAsync().Wait();
             Console.WriteLine("Answer:" + response.Outval);
-            Console.ReadKey();*/
-            return response.Outval;
+            Console.ReadKey();
+            //return response.Outval;
         }
     }
 }

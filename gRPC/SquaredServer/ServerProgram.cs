@@ -39,18 +39,14 @@ namespace SquaredServer
         const int Port = 50051;
 
         public static void Main(string[] args) {
-            // Build a server
-            var server = new Server {
+            var server = new Server {               // Build a server
                 Services = { SquareService.BindService(new SquaredServiceImpl()) },
                 Ports = { new ServerPort(Host, Port, ServerCredentials.Insecure) }
             };
+            server.Start();     // Start server
 
-            // Start server
-            server.Start();
-
-            Console.WriteLine("GreeterServer listening on port " + Port);
-            Console.WriteLine("Press any key to stop the server...");
-            Console.ReadKey();
+            Console.WriteLine("My server listening on port " + Port);
+            Console.ReadKey();   
 
             server.ShutdownAsync().Wait();
         }

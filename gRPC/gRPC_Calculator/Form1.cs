@@ -18,9 +18,7 @@ namespace gRPC_Calculator
     {
         public bool firstFlag;
         public String prevOp;
-		//String curOp;
 		public float runningTotal;
-        //float curVal;
 
         SquaredClient.ClientProgram gRPC = new SquaredClient.ClientProgram();
         public Form1()
@@ -29,7 +27,6 @@ namespace gRPC_Calculator
             firstFlag = true;
             prevOp = "+";
             runningTotal = 0;
-            //curVal = 0;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) { }
@@ -147,6 +144,7 @@ namespace gRPC_Calculator
         // sub
         private void button10_Click(object sender, EventArgs e) {
             float curVal = Convert.ToSingle(textBox1.Text);
+
             if (prevOp == "+") {
                 runningTotal += curVal;
             } else if (prevOp == "-") {
