@@ -1,14 +1,8 @@
-var server = new Server {               // Build a server
-    Services = { 
-        SquareService.BindService(new SquaredServiceImpl()) 
-    },
-    Ports = { 
-        new ServerPort(Host, Port, ServerCredentials.Insecure) 
+private float inval_;
+[global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+public float Inval {
+    get { return inval_; }
+    set {
+        inval_ = value;
     }
-};
-server.Start();     // Start server
-
-Console.WriteLine("My server listening on port " + Port);
-Console.ReadKey();   
-
-server.ShutdownAsync().Wait();
+}

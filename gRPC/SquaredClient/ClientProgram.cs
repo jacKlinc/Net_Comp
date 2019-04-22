@@ -23,9 +23,7 @@ namespace SquaredClient
             var client = new SquareService.SquareServiceClient(channel);
 
             // Create a request 
-            var request = new SquareRequest {
-                Inval = 74
-            };
+            var request = new SquareRequest { Inval = 74 };
 
             // Send the request and store the response
             var response = client.RetSquare(request);
