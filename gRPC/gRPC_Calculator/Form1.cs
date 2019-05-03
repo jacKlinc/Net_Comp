@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using SquaredClient;
+using SquaredClient;            // DLL from client's Debug dir included as ref (go to button 19)
 
 namespace gRPC_Calculator
 {
@@ -20,7 +20,7 @@ namespace gRPC_Calculator
         public String prevOp;
 		public float runningTotal;
 
-        SquaredClient.ClientProgram gRPC = new SquaredClient.ClientProgram();
+        //SquaredClient.ClientProgram gRPC = new SquaredClient.ClientProgram();
         public Form1()
         {
             InitializeComponent();
@@ -226,9 +226,10 @@ namespace gRPC_Calculator
         }
 
         private void button19_Click(object sender, EventArgs e) {
-            float curVal = Convert.ToSingle(textBox1.Text);
-            ClientProgram mySqaure = new ClientProgram();
+            float curVal = Convert.ToSingle(textBox1.Text);     // user input converted to usable float
+            ClientProgram mySqaure = new ClientProgram();       // instance of client is created
 
+            // Calculator work
             if (prevOp == "+") {
                 runningTotal += curVal;
             } else if (prevOp == "-") {
@@ -239,10 +240,10 @@ namespace gRPC_Calculator
                 runningTotal /= curVal;
             }
 
-            float sqrVal = mySqaure.RetSquare(runningTotal);
+            float sqrVal = mySqaure.RetSquare(runningTotal);    // passes running total to squar function
 
-            textBox1.Text = Convert.ToString(sqrVal);
-            runningTotal = sqrVal;
+            textBox1.Text = Convert.ToString(sqrVal);           //  puts it on the screen
+            runningTotal = sqrVal;                              // update total
             prevOp = "^";
             firstFlag = true;
         }

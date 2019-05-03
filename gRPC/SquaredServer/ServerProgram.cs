@@ -29,9 +29,9 @@
 
 using System;
 using Grpc.Core;
-using Com.Example.Grpc;
+using Com.Example.Grpc; // same as package name in proto
 
-namespace SquaredServer
+namespace SquaredServer // same as that of that of the service name in proto file
 {
     public class ServerProgram
     {
@@ -40,8 +40,8 @@ namespace SquaredServer
 
         public static void Main(string[] args) {
             var server = new Server {               // Build a server
-                Services = { SquareService.BindService(new SquaredServiceImpl()) },
-                Ports = { new ServerPort(Host, Port, ServerCredentials.Insecure) }
+                Services = { SquareService.BindService(new SquaredServiceImpl()) }, // binds proto service to server implementation
+                Ports = { new ServerPort(Host, Port, ServerCredentials.Insecure) }  // creates endpoint
             };
             server.Start();     // Start server
 

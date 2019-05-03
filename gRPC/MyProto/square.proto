@@ -21,14 +21,15 @@ option objc_class_prefix = "SQP";
 
 package com.example.grpc;
 
-message SquareRequest {
-  float inval = 1;
+message SquareRequest {		// request message passed to square function
+  float inval = 1;			// is assigned one byte for its priority
 }
 
-message SquareReply {
+message SquareReply {		// this is returned when sqaure function is called
   float outval = 1;
 }
 
 service SquareService {
-  rpc RetSquare (SquareRequest) returns (SquareReply) {}
+  rpc RetSquare (SquareRequest) returns (SquareReply) {} 
+  // RPC function created
 }

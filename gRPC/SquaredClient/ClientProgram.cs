@@ -14,23 +14,21 @@ namespace SquaredClient
         const string HOST = "localhost";
         const int PORT = 50051;
 
-        public float RetSquare(float x) {
-        //public static void Main(string[] args) { 
-            // Create a channel
-            var channel = new Channel(HOST + ":" + PORT, ChannelCredentials.Insecure);
+        public float RetSquare(float x) {           // uses square function from proto
+        //public static void Main(string[] args) { // *****  needed for console app 
 
-            // Create a client with the above channel
-            var client = new SquareService.SquareServiceClient(channel);
+            var channel = new Channel(HOST + ":" + PORT, ChannelCredentials.Insecure);  // allows multiple TCP connections across one channel, 
+            // minimise number of channels-expensive op
 
-            // Create a request 
-            var request = new SquareRequest { Inval = x };
+            var client = new SquareService.SquareServiceClient(channel);        // creates client with client function from SquareGrpc
 
-            // Send the request and store the response
-            var response = client.RetSquare(request);
+            var request = new SquareRequest { Inval = x };                      // passes input value of function to create a new request
+
+            var response = client.RetSquare(request);                           // use request to return reply
             channel.ShutdownAsync().Wait();
-            //Console.WriteLine("Answer:" + response.Outval);
+            //Console.WriteLine("Answer:" + response.Outval);                   // ***** needed for console app
            // Console.ReadKey();
-            return response.Outval;
+            return response.Outval;                                             //  give calcualtor app the answer
         }
     }
 }

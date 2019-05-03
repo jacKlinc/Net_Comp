@@ -30,12 +30,12 @@ using Com.Example.Grpc;
 using Grpc.Core;
 using System.Threading.Tasks;
 
-namespace SquaredServer
+namespace SquaredServer 
 {
-public class SquaredServiceImpl : SquareService.SquareServiceBase
+public class SquaredServiceImpl : SquareService.SquareServiceBase // inherits abstract base class
 {
     public override Task<SquareReply> RetSquare(SquareRequest request, ServerCallContext context) {
-        return Task.FromResult(new SquareReply { Outval = request.Inval * request.Inval });
+        return Task.FromResult(new SquareReply { Outval = request.Inval * request.Inval });         // square function is implemented
     }
 }
 }
