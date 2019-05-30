@@ -3,4 +3,5 @@ import java.rmi.RemoteException;
 // Creating Remote interface for our application 
 public interface Hello extends Remote {
     void printMsg() throws RemoteException;
+    int addition(int x, int y);
 }

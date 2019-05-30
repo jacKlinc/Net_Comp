@@ -6,10 +6,6 @@ import java.rmi.server.UnicastRemoteObject;
 public class Server extends ImplHello {
     public Server() {}
 
-    public int addition (int x, int y) {
-        return x + y;
-    }
-
     public static void main(String[] args) {
         try {
             // Instantiate impl class

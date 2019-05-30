@@ -5,8 +5,14 @@ public class Client {
     private Client() {}
     public static void main(String[] args) {
         try {
+            //Client code modification
+            String serverIP = "169.254.94.226"; 
+
+            // Use your server IP address here orlocalhost if client and server are on same machine.
+            
+            int serverPort = 1099;// Getting reference to the registry 
             // Get ref to reg
-            Registry reg = LocateRegistry.getRegistry(null);
+            Registry reg = LocateRegistry.getRegistry(serverIP, serverPort);
 
             // Looking up reg for stub
             Hello stub = (Hello) reg.lookup("Wow");
@@ -18,16 +24,8 @@ public class Client {
             Server s1 = new Server();
             //System.out.println("Please enter two numbers: ");
             //System.in(in1, in2);
-            s1.addition(in1, in2);
-
-            //Client code modification
-            
-            //String serverIP = "169.254.94.226"; 
-            
-            // Use your server IP address here orlocalhost if client and server are on same machine.
-            
-            //int serverPort = 1099;// Getting reference to the registry 
-            //Registry reg2 = LocateRegistry.getRegistry(serverIP, serverPort);
+            int x = s1.addition(in1, in2);
+            System.out.println(x);            
 
         } catch (Exception e) {
             System.err.println("Client exception:" + e.toString());
@@ -35,3 +33,5 @@ public class Client {
         } 
     }
 }
+
+// 147.252.238.148

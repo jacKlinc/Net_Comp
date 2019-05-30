@@ -5,4 +5,7 @@ public class ImplHello implements Hello {
     public void printMsg() {
         System.out.println("This is an RMI program");
     }
+    public int addition (int x, int y){
+        return x + y;
+    }
 }
