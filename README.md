@@ -2,7 +2,7 @@
 *All work completed in Network Centric Computing Module. This module was introduction to Web Services and 
 Cloud Computing, starting with .NET, SOAP, RESTful, RPC/gRPC and AWS.  The bulk of the work completed is 
 in the gRPC Formal Element, where the server communicates with a calculator app created in 
-Lab 2, via gPRC.  
+Lab 2, via gPRC.*
 
 
 ## Lab1: Intro to C++/CLI 
