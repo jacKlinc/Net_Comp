@@ -148,11 +148,12 @@ The client will now know where to send requests. After all steps are completed t
 can communicate.
 
 
-#### Exception Handling
 
+### Lab6_SOAP
+This lab uses HolidayService2, a public web service, to call methods returning Holiday dates across different
+countries. It can be accessed in URI format:
+http://www.holidaywebservice.com/HolidayService_v2/HolidayService2.asmx
 
+Communicating with this service is done with a proxy class, when server and client are talking it's done through this class, it serialises/deserialises the XML data that is standard among SOAP services. The class is created using the Windows Service Definiton Language (WSDL) command line tool, then the returned file was copied to this project's directory. An instance is created in Program.cs where the service's methods are accessed.
 
-
-### Lab5 
-I attempted to make my own RPC program in VS 2017 but ran into many linker errors and couldn't solve 
-them so instead used the example given by our lecturer.
+This is project is then compiled as a DLL to be accessed in future.
