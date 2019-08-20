@@ -1,5 +1,8 @@
 # Network Centric Computing
-*All work completed in Network Centric Computing Module.*
+*All work completed in Network Centric Computing Module. This module was introduction to Web Services and 
+Cloud Computing, starting with .NET, SOAP, RESTful, RPC/gRPC and AWS.  The bulk of the work completed is 
+in the gRPC Formal Element, where the server communicates with a calculator app created in 
+Lab 2, via gPRC.*
 
 
 ## Lab1: Intro to C++/CLI 
@@ -148,11 +151,19 @@ The client will now know where to send requests. After all steps are completed t
 can communicate.
 
 
-#### Exception Handling
+
+## Lab6_SOAP
+This lab uses HolidayService2, a public web service, to call methods returning Holiday dates across different
+countries. It can be accessed in URI format:
+http://www.holidaywebservice.com/HolidayService_v2/HolidayService2.asmx
+
+Communicating with this service is done with a proxy class, when server and client are talking it's done through this class, it serialises/deserialises the XML data that is standard among SOAP services. The class is created using the Web Service Definiton Language (WSDL) command line tool, then the returned file was copied to this project's directory. An instance is created in Program.cs where the service's methods are accessed.
+
+This is project is then compiled as a DLL to be accessed in future.
+
+## Lab7_Client
+Web services should be able to work on any platform, this requires standards to be used on services 
+like the one mentioned in Lab6.  This lab shows use of WSDL, the definition language used to define
+how services interact with the outside world, this includes the ports and addresses where the service is available and the structure of the messages.
 
 
-
-
-### Lab5 
-I attempted to make my own RPC program in VS 2017 but ran into many linker errors and couldn't solve 
-them so instead used the example given by our lecturer.
